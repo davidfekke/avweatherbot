@@ -1,0 +1,16 @@
+{
+  "name": "avweather",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "fast-xml-parser": "^3.12.0",
+    "particle-api-js": "^7.2.3"
+  }
+}
