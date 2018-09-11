@@ -54,6 +54,7 @@ void myRainbowHandler(const char *event, const char *data)
 void setup() {
     Particle.subscribe("pushcolor", myHandler, MY_DEVICES);
     Particle.subscribe("rainbow", myRainbowHandler, MY_DEVICES);
+    Particle.publish("readyforwx", "Seed data");
     red = 0; 
     green = 0;
     blue = 0;
