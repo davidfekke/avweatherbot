@@ -44,17 +44,14 @@ void myRainbowHandler(const char *event, const char *data)
   b.ledOn(3, 0, 255, 0); // Green
   delay(500);
   b.ledOn(6, 0, 0, 255); // Blue
-  //b.ledOn(9, 0, 0, 0);
   delay(500);
   b.rainbow(5);
-  //delay(2000);
-  
 }
 
 void setup() {
     Particle.subscribe("pushcolor", myHandler, MY_DEVICES);
     Particle.subscribe("rainbow", myRainbowHandler, MY_DEVICES);
-    Particle.publish("readyforwx", "Seed data");
+    Particle.publish("readyforwx", "Initial");
     red = 0; 
     green = 0;
     blue = 0;
@@ -62,6 +59,8 @@ void setup() {
 }
 
 void loop() {
-
+    if (!b.allButtonsOff()) {
+        Particle.publish("readyforwx", "Refresh");
+        delay(1000);
+    }
 }
-
