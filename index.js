@@ -27,6 +27,7 @@ function getWeatherColor(wxFlyingRules) {
 function colorForWeather(wxFlyingRules) {
     let weatherColor = getWeatherColor(wxFlyingRules);
     console.log('colorForWeather called');
+    console.log(`Weather color is ${weatherColor}`);
     const publishEventPr = particle.publishEvent({ name: 'pushcolor', data: weatherColor, isPrivate: true, auth: access_token });
     publishEventPr.then(
         function(data) {
@@ -63,3 +64,5 @@ function sendCurrentWX() {
         }
     });
 }
+
+require('http').createServer().listen(3000)l
