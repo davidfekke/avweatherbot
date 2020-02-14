@@ -5,7 +5,7 @@ const airport = 'KCRG';
 
 const Particle = require('particle-api-js');
 const particle = new Particle();
-const access_token = process.env.SPARKACCESSTOKEN;
+const access_token = process.env.particle_access_token;
 const device = process.env.button_device;
 const vfrColor = [0,255,0];
 const mvfrColor = [0,0,255];
@@ -65,4 +65,5 @@ function sendCurrentWX() {
     });
 }
 
-require('http').createServer().listen(3000);
+// Some hosts require that you run your process as an http event listener.
+// require('http').createServer().listen(3000);
