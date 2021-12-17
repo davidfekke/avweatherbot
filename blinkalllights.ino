@@ -48,9 +48,15 @@ void myRainbowHandler(const char *event, const char *data)
   b.rainbow(5);
 }
 
+void myOffHandler(const char *event, const char *data)
+{
+  b.allLedsOff();
+}
+
 void setup() {
     Particle.subscribe("pushcolor", myHandler, MY_DEVICES);
     Particle.subscribe("rainbow", myRainbowHandler, MY_DEVICES);
+    Particle.subscribe("alloff", myOffHandler, MY_DEVICES);
     Particle.publish("readyforwx", "Initial");
     red = 0; 
     green = 0;
