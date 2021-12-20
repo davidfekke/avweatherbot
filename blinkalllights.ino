@@ -25,6 +25,7 @@ void myHandler(const char *event, const char *data)
     
     if (red != intArray[0] || green != intArray[1] || blue != intArray[2]) {
         myRainbowHandler("rainbow", "");
+        playSoundHandler("playSound", "");
     }
     
     red = intArray[0];
@@ -48,6 +49,11 @@ void myRainbowHandler(const char *event, const char *data)
   b.rainbow(5);
 }
 
+void playSoundHandler(const char *event, const char *data)
+{
+    b.playNote("C4",2);
+}
+
 void myOffHandler(const char *event, const char *data)
 {
   b.allLedsOff();
@@ -57,6 +63,7 @@ void setup() {
     Particle.subscribe("pushcolor", myHandler, MY_DEVICES);
     Particle.subscribe("rainbow", myRainbowHandler, MY_DEVICES);
     Particle.subscribe("alloff", myOffHandler, MY_DEVICES);
+    Particle.subscribe("playsound", playSoundHandler, MY_DEVICES);
     Particle.publish("readyforwx", "Initial");
     red = 0; 
     green = 0;
